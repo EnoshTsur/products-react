@@ -1,11 +1,15 @@
+import CartItem from "../components/CartItem/CartItem"
+import List from "../components/List/List"
 import useCartStore from "../store/cartStore"
 
 const Checkout = () => {
     const { cart } = useCartStore()
-    console.log('!!!', cart)
 
     return  (
-        <>checkout</>
+        <List 
+            data={cart} 
+            Item={({ data }) => <CartItem item={data} />} 
+        />
     )
 }
 

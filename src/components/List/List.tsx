@@ -4,6 +4,8 @@ const StyledList = styled.div`
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
+    justify-content: center;
+    padding: 1rem;
 `
 
 interface ListProps <T> {
@@ -13,7 +15,7 @@ interface ListProps <T> {
 
 
 const List = <T,>({ data, Item }: ListProps<T>) => (
-    <StyledList>
+    <StyledList> 
         { data.map((item, i) => <Item data={item}  key={`${item}${i}`}/> )}
     </StyledList>
 )
