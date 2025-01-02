@@ -1,3 +1,4 @@
+import Checkout from "../pages/Checkout"
 import Home from "../pages/Home"
 
 interface RouteItem {
@@ -14,6 +15,6 @@ export const config: RouterConfig = [
     },
     {
         path: '/checkout',
-        component: <h1>Checkout</h1>
+        component: <Checkout /> 
     }
 ]

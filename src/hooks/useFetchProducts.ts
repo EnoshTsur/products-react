@@ -5,6 +5,7 @@ export interface ProductItemData {
     readonly image: string
     readonly price: number
     readonly title: string
+    readonly id: number
 }
 
 export interface FetchResponse <T> {
