@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import mock from "../mock/store.mock"
 
 export interface ProductItemData {
     readonly description: string
@@ -24,9 +25,9 @@ const useFetchProducts = () => {
     useEffect(() => {
         (async () => {
             try {
-                const res = await fetch('https://fakestoreapi.com/products')
-                const data = await res.json()
-                setResponse({ data, loading: false, error: null })
+                // const res = await fetch('https://fakestoreapi.com/products')
+                // const data = await res.json()
+                setResponse({ data: mock, loading: false, error: null })
             } catch (e) {
                 setResponse({ data: null, loading: false, error: `${e}`})
             }
