@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { ProductItemData } from "../../hooks/useFetchProducts";
 import { MdDelete } from "react-icons/md";
 import Button from "../ui/Button/Button";
+import useCartStore from "../../store/cartStore";
 
 const StyledCartItem = styled.div`
   display: flex;
@@ -28,18 +29,24 @@ interface CartItemProps {
   readonly item: ProductItemData;
 }
 
-const CartItem = ({ item }: CartItemProps) => (
-  <StyledCartItem>
-    <CartItemContent>
-      <img src={item.image} style={{ width: "5rem" }} />
-      <p>{item.title}</p>
-    </CartItemContent>
-    <DeleteArea>
-      <Button style={{ fontSize: '30px', color: '#700d0d'}}>
-        <MdDelete />
-      </Button>
-    </DeleteArea>
-  </StyledCartItem>
-);
+const CartItem = ({ item }: CartItemProps) => {
+  const { removeItem } = useCartStore();
+  return (
+    <StyledCartItem>
+      <CartItemContent>
+        <img src={item.image} style={{ width: "5rem" }} />
+        <p>{item.title}</p>
+      </CartItemContent>
+      <DeleteArea>
+        <Button
+          onClick={() => removeItem(item.id)}
+          style={{ fontSize: "30px", color: "#700d0d" }}
+        >
+          <MdDelete />
+        </Button>
+      </DeleteArea>
+    </StyledCartItem>
+  );
+};
 
 export default CartItem;
