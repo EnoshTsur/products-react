@@ -1,3 +1,5 @@
+import Home from "../pages/Home"
+
 interface RouteItem {
     readonly path: string
     readonly component: React.ReactNode
@@ -8,7 +10,7 @@ type RouterConfig = ReadonlyArray<RouteItem>
 export const config: RouterConfig = [
     {
         path: '/',
-        component: <h1>Home</h1>
+        component: <Home />
     },
     {
         path: '/checkout',

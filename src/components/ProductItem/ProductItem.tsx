@@ -1,5 +1,6 @@
 import { styled } from "styled-components";
 import { ProductItemData } from "../../hooks/useFetchProducts";
+import Button from "../ui/Button/Button";
 
 const ProductContainer = styled.div`
     padding: 1rem;
@@ -10,6 +11,8 @@ const ProductContainer = styled.div`
     gap: 0.5rem;
     text-align: center;
     max-width: 20rem;
+    justify-content: space-between;
+    align-items: center;
 `
 
 const ProductImage = styled.img`
@@ -24,9 +27,9 @@ interface ProductItemProps {
 const ProductItem = ({data: { title, description, price, image }}: ProductItemProps) => (
     <ProductContainer>
         <ProductImage src={image} />
-        <h3>{title} {price}$</h3>
-        <hr />
+        <h2>{title} {price}$</h2>
         <p>{description}</p>
+        <Button>Add to cart</Button>
     </ProductContainer>
 )
 
